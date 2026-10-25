@@ -1,0 +1,50 @@
+# ==========================================
+# 1. Python & Virtual Environments
+# ==========================================
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# 2. DuckDB & Local Data Files
+# ==========================================
+*.duckdb
+*.duckdb.wal
+*.duckdb.tmp
+
+# Ignore generated raw data in data/, but keep the folder itself via .gitkeep
+data/*
+!data/.gitkeep
+
+# ==========================================
+# 3. dbt Artifacts & Packages
+# ==========================================
+**/target/
+**/dbt_packages/
+**/logs/
+package-lock.yml
+**/.user.yml
+
+# ==========================================
+# 4. Environment Variables & Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# 5. IDE & OS Noise
+# ==========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
