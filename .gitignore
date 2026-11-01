@@ -38,6 +38,7 @@ package-lock.yml
 .env
 .env.*
 !.env.example
+.envrc
 
 # ==========================================
 # 5. IDE & OS Noise

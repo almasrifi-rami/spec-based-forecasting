@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: raw_erp
+    description: "Raw B2B glove ERP tables loaded into DuckDB via generate_erp_data.py"
+    schema: raw_erp
+    tables:
+      - name: suppliers
+        description: "Raw supplier master data with lead times and reliability tiers"
+        columns:
+          - name: supplier_id
+            tests:
+              - unique
+              - not_null
+
+      - name: customers
+        description: "Raw B2B customer master data (hospitals, distributors, clinics)"
+        columns:
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+
+      - name: items
+        description: "Raw item master containing messy spec strings, UoMs, and duplicate extract rows"
+        columns:
+          - name: item_id
+            tests:
+              - not_null
+
+      - name: inventory_daily
+        description: "Daily warehouse stock balances and stockout flags per SKU"
+
+      - name: sales_orders
+        description: "Transactional B2B customer sales order lines in raw ordering UoMs"
+        columns:
+          - name: order_id
+            tests:
+              - not_null

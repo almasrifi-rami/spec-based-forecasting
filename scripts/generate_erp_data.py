@@ -548,7 +548,7 @@ def main() -> None:
     df_inventory, df_orders = simulate_inventory_and_orders(df_items_clean, df_customers_clean)
 
     print(f"📦 Connecting to DuckDB at: {DB_PATH}")
-    with duckdb.connect(str(DB_PATH)) as con:
+    with duckdb.connect(str(DB_PATH), config={"storage_compatibility_version": "v1.5.0"}) as con:
         con.execute("CREATE SCHEMA IF NOT EXISTS raw_erp;")
 
         tables = {
