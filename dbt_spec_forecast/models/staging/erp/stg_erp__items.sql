@@ -30,11 +30,12 @@ cleaned_items as (
             else null
         end as material,
         case
-            when size_raw = 'Extra Small' or size_raw like '%XS%' then 'XS'
-            when size_raw = 'm' or size_raw like '%M%' then 'M'
-            when size_raw like '%XL%' then 'XL'
-            when size_raw like '%L%' then 'L'
-            when size_raw like '%S%' then 'S'
+            when size_raw ilike '%extra small%' or size_raw ilike '%xs%' then 'XS'
+            when size_raw ilike '%extra large%' or size_raw ilike '%xl%' then 'XL'
+            when size_raw ilike '%small%' then 'S'
+            when size_raw ilike '%medium%' or size_raw ilike '%m%' then 'M'
+            when size_raw ilike '%large%'  or size_raw ilike '%l%' then 'L'
+            when size_raw ilike '%s%' then 'S'
             else null
         end as size,
         upper(trim(color_raw)) as color,
